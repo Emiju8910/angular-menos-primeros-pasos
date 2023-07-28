@@ -1,0 +1,15 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<h3>Listado de Héroes</h3>
+
+<h3 *ngIf="deletedHeroes;else NoHaBorradoNada" >Heroe Borrado <small class="text-danger" > {{ deletedHeroes }} </small> </h3>
+<ng-template #NoHaBorradoNada>
+  <h3>No ha borrado nada.</h3>
+</ng-template>
+
+<button *ngIf="heroNames.length > 0" class="btn btn-outline-danger" (click)="deletedEnd()">
+  Borrrar último héroe
+</button>
+
+<ul class="mt-2 list-group">
+  <li *ngFor="let item of heroNames" class="list-group-item">{{ item }}</li>
+</ul>
